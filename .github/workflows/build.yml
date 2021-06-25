@@ -1,0 +1,22 @@
+name: repo ini test
+
+on: 
+  workflow_dispatch:
+  schedule:
+    - cron:  '*/15 * * * *'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Download repo and repo init
+        run: |
+          mkdir -p ~/.bin
+          PATH="${HOME}/.bin:${PATH}"
+          curl https://storage.googleapis.com/git-repo-downloads/repo > ~/.bin/repo
+          chmod a+rx ~/.bin/repo
+          git config --global user.name "Test name"
+          git config --globale user.email testemail@test.com
+          git config --global color.ui false
+          git config --globale credential.helper store
+          repo init -u https://android.googlesource.com/platform/manifest
