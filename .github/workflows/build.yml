@@ -18,5 +18,5 @@ jobs:
           git config --global user.name "Test name"
           git config --global user.email testemail@test.com
           git config --global color.ui false
-          git config --globale credential.helper store
+          git config --global credential.helper store
           repo init -u https://android.googlesource.com/platform/manifest
